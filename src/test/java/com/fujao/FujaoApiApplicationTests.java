@@ -1,0 +1,13 @@
+package com.fujao;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class FujaoApiApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}

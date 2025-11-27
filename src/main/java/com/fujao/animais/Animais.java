@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,6 +15,45 @@ import lombok.Setter;
 @Setter
 @Table(name = "animal")
 public class Animais {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name = "usuario_id")
+    private Integer usuario_id;
+
+    @Column(name = "nome")
+    private String nome;
+
+    @Column(name = "tamanho")
+    private String tamanho;
+
+    @Column(name = "cor")
+    private String cor;
+
+    @Column(name = "raca")
+    private String raca;
+
+    @Column(name = "especie")
+    private String especie;
+
+    @Column(name = "descricao")
+    private String descricao;
+
+    @Column(name = "longitude")
+    private Double longitude;
+
+    @Column(name = "latitude")
+    private Double latitude;
+
+    @Column(name = "perdido")
+    private Boolean perdido;
+    
+    @Lob
+    @Column(name = "imagem_base64", columnDefinition = "LONGTEXT")
+    private String imagem_base64; 
+
 
     public Integer getId() {
         return id;
@@ -103,37 +143,11 @@ public class Animais {
         this.perdido = perdido;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    public String getImagem_base64() {
+        return imagem_base64;
+    }
 
-    @Column(name = "usuario_id")
-    private Integer usuario_id;
-
-    @Column(name = "nome")
-    private String nome;
-
-    @Column(name = "tamanho")
-    private String tamanho;
-
-    @Column(name = "cor")
-    private String cor;
-
-    @Column(name = "raca")
-    private String raca;
-
-    @Column(name = "especie")
-    private String especie;
-
-    @Column(name = "descricao")
-    private String descricao;
-
-    @Column(name = "longitude")
-    private Double longitude;
-
-    @Column(name = "latitude")
-    private Double latitude;
-
-    @Column(name = "perdido")
-    private Boolean perdido;
+    public void setImagem_base64(String imagem_base64) {
+        this.imagem_base64 = imagem_base64;
+    }
 }

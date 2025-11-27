@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob; // Importe o @Lob
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -37,11 +38,18 @@ public class AnimalEncontrado {
     @Column(name = "especie")
     private String especie;
 
-
     @Column(name = "descricao")
     private String descricao;
     
-    // Getters and Setters
+    // NOVO CAMPO: Imagem em formato Base64
+    @Lob // Usado para armazenar strings de texto longo
+    @Column(name = "imagem_base64")
+    private String imagem_base64; 
+
+    // ------------------------------------
+    // GETTERS E SETTERS
+    // ------------------------------------
+
     public Integer getId() {
         return id;
     }
@@ -97,13 +105,20 @@ public class AnimalEncontrado {
     public void setEspecie(String especie) {
         this.especie = especie;
     }
-
-
+    
     public String getDescricao() {
         return descricao;
     }
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+    
+    public String getImagem_base64() {
+        return imagem_base64;
+    }
+
+    public void setImagem_base64(String imagem_base64) {
+        this.imagem_base64 = imagem_base64;
     }
 }
